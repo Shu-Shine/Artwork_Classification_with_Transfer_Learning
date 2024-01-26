@@ -5,21 +5,14 @@ import os
 import io
 from PIL import Image
 
-proxy = {
-    'http': 'http://proxy:80',
-    'https': 'http://proxy:80',
-}
-
-# Set proxy environment variables
-os.environ['HTTP_PROXY'] = proxy['http']
-os.environ['HTTPS_PROXY'] = proxy['https']
-
 
 # load categories file
 categories_file = './Places365/categories_places365.txt'
+
 # files to save
 dataframe_file_path = 'results/wikidata_artwork.csv'
 metadata_file_path = 'results/wikidata_metadata.csv'
+
 # image download directory
 output_directory = './Artwork/wikidata'
 
@@ -63,8 +56,6 @@ def get_qid_for_words(category_name):
         return data['search'][0]['id']
     else:
         return None
-
-
 
 
 def process_queries(label_index, max_images_per_category = 10):
