@@ -76,16 +76,6 @@ def process_queries(label_index, max_images_per_category = 10):
         print(f"The QID for {category_name} is {qid}")
         qids.append({'label': category_name, 'index': l['index'], 'qid': qid})
 
-    # Save to CSV
-    # csv_file_path = 'places365_qids.csv'
-    # with open(csv_file_path, 'w', newline='') as csvfile:
-    #     fieldnames = ['label', 'index', 'qid']
-    #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    #
-    #     writer.writeheader()
-    #     for row in qids:
-    #         writer.writerow(row)
-
         if isinstance(qid, list):
             qid_str = ' && '.join([f'?category = wd:{qid_val}' for qid_val in qid])
             category_filter = qid_str
