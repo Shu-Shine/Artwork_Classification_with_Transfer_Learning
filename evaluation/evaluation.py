@@ -19,7 +19,7 @@ pretrained_model = 'finetune'  # 'finetune' or 'places365'
 # mdoel architecture
 arch = 'wavemix'  # 'densenet161'  'resnet50'  'wavemix'
 # test dataset
-csv_name = 'Artwork.csv' 
+csv_name = 'Fragrant_Spaces.csv' 
 root_add = './Artwork/p'   
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
