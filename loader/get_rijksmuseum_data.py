@@ -112,7 +112,7 @@ technique = ['brush', 'etching', 'engraving', 'drypointdelete','color+woodcut'] 
 Para = '&imgonly=True&ondisplay=True&ps=100'
 max_images = 100
 
-# Load category and technique labels from a file
+# Load category
 with open('./Places365/categories_places365.txt', 'r') as file:
 
     label_index = [{'label': ' '.join(line.split()[0].split('/')[2:]).replace('_', ' '), 'index': int(line.split()[-1])} for line in file.readlines()]
