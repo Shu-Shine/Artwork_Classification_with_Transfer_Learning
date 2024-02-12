@@ -25,7 +25,7 @@ class ADataset(Dataset):
         img_name = os.path.join(self.root_dir, str(self.data.iloc[idx, 0]))#, f'image_{idx}.jpg'
         image = Image.open(img_name).convert('RGB')
 
-        label = self.data.iloc[idx, 1]  # Assuming the label is in the first column
+        label = self.data.iloc[idx, 1]  
 
         if self.transform:
             image = self.transform(image)
