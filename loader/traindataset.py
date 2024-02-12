@@ -54,7 +54,7 @@ class ADataset(Dataset):
         # if the image not exist, return
         image = Image.open(img_name).convert('RGB')
 
-        label = self.data.iloc[idx, 1]  # Assuming the label is in the first column
+        label = self.data.iloc[idx, 1]  
 
         if self._transform:
             img = self._transform(image)
