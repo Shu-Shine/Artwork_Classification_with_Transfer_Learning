@@ -101,7 +101,6 @@ predictions_list = []
 top1_accuracy_list = []
 top5_accuracy_list = []
 
-# Create a data loader for your custom dataset
 custom_loader = torch.utils.data.DataLoader(artwork_dataset, batch_size=32, shuffle=False)
 
 total_images = len(custom_loader.dataset)
@@ -127,7 +126,6 @@ data = pd.DataFrame({
     'Top5_Accuracy': top5_accuracy_list
 })
 
-# Save data
 data.to_csv('Artwork_{}_{}.csv'.format(arch, pretrained_model), index=False)  # artwork_dataset_results.csv
 
 top1_accuracy = data['Top1_Accuracy'].mean()
