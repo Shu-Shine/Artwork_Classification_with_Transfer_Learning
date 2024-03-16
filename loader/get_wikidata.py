@@ -77,16 +77,23 @@ def process_queries(label_index, max_images_per_category = 10):
         qids.append({'label': category_name, 'index': l['index'], 'qid': qid})
 
         if isinstance(qid, list):
-            qid_str = ' && '.join([f'?category = wd:{qid_val}' for qid_val in qid])
-            category_filter = qid_str
+            # qid_str = ' && '.join([f'?category = wd:{qid_val}' for qid_val in qid])
+            # category_filter = qid_str
+            category_vars = [f'?category{i+1}' for i in range(len(qid))]
+            category_patterns = [f'{category_var} = wd:{qid_val}' for category_var, qid_val in zip(category_vars, qid)]
+            category_filter = ' && '.join(category_patterns)
+            query_patterns = [f'?item wdt:P180 {category_var};' for category_var in category_vars]
+            query_patterns_str = '\n'.join(query_patterns)
+            
         else:
             category_filter = f"?category = wd:{qid}"
+            query_patterns_str = f"?item wdt:P180 ?category;"
 
         sparql_query = f"""
                 SELECT ?item ?itemLabel ?image
                 WHERE {{
-                    ?item wdt:P180 ?category;
-                          wdt:P31 wd:Q3305213;
+                    {query_patterns_str}
+                    ?item wdt:P31 wd:Q3305213;
                           wdt:P18 ?image.
                     FILTER ({category_filter})
                     SERVICE wikibase:label {{ bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }}
