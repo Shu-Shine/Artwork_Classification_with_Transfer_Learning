@@ -77,8 +77,6 @@ def process_queries(label_index, max_images_per_category = 10):
         qids.append({'label': category_name, 'index': l['index'], 'qid': qid})
 
         if isinstance(qid, list):
-            # qid_str = ' && '.join([f'?category = wd:{qid_val}' for qid_val in qid])
-            # category_filter = qid_str
             category_vars = [f'?category{i+1}' for i in range(len(qid))]
             category_patterns = [f'{category_var} = wd:{qid_val}' for category_var, qid_val in zip(category_vars, qid)]
             category_filter = ' && '.join(category_patterns)
