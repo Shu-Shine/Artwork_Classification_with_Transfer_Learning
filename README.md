@@ -1,3 +1,3 @@
-# Fragrant Spaces Classification (with transfer learning)
+# Fragrant Spaces Classification with Transfer Learning
 
 
