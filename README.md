@@ -5,10 +5,10 @@ This study presents a pioneering exploration into the classification of fragrant
 
 ## Dataset
 We possess the artistic scene-centric datasets RASD and WASD for transfer learning, which help bridge the gap between the contrasting characteristics of scent-based artistic representations and physical environments. The Fragrant-Spaces dataset is utilized to assess the efficacy of the trained models, serving as our target set. 
-<div algin=center>
-<img width='500' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/t1.jpg'>
-<img width='550' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/f.jpg'>
-<img width='550' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/asd.jpg'>
+<div align=center>
+<img width='500' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/t1.jpg'/>
+<img width='550' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/f.jpg'/>
+<img width='550' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/asd.jpg'/>
 </div>
 
 ## Results
