@@ -4,13 +4,12 @@ from tqdm import tqdm
 import re
 from urllib.parse import quote
 
-# Define your API key and base URL
+# Define API key and base URL
 _API_KEY =  ' '
 _BASE_URL = 'https://www.rijksmuseum.nl/api/nl/collection'
 
 
 
-# Function to download an image
 def download_img(url, fn):
     r = requests.get(url, allow_redirects=True)
     if r.status_code == 200:
@@ -20,7 +19,6 @@ def download_img(url, fn):
     open(f'im/{fn}', 'wb').write(r.content)
 
 
-# Function to extract date
 def extract_date(longTitle):
     years = re.findall(r'\d{4}', longTitle)
     if len(years) == 1:
@@ -31,14 +29,13 @@ def extract_date(longTitle):
         # raise Exception
         return 0, 0
 
-# Function to make a collection query
+
 def collection_query(query_string):
     query_url = f'{_BASE_URL}?key={_API_KEY}&{query_string}'
     r = requests.get(query_url)
     return r.json()
 
 
-# Function to process query results
 def process_results(results_json):
     entries = [e for e in results_json['artObjects']]
     d = []
@@ -72,13 +69,13 @@ def process_results(results_json):
     return pd.DataFrame(d)
 
 
-# Function to process a single query
+# process a single query
 def process_query(query_string):
     results = collection_query(query_string)
     return process_results(results)
 
 
-# Function to process multiple queries
+# process multiple queries
 def process_queries(label_index, technique_labels, max):
     results_dfs = []
     rijksmuseum = [] # List to store image filenames and their corresponding labels
