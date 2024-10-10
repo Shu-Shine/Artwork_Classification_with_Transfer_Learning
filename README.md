@@ -1,4 +1,4 @@
-# Fragrant Spaces Classification with Transfer Learning
+# Novel Artistic Scene-Centric Datasets for Effective Transfer Learning in Fragrant Spaces
 ## Introduction
 Olfaction is often overlooked in cultural heritage studies, while examining historical depictions of olfactory scenes can offer valuable insights into the role of smells in history. The main challenge arises from the lack of published datasets with scene annotations for historical artworks, especially in artistic fragrant spaces. We introduce a novel artistic scene-centric dataset consisting of 4541 artworks and categorized across 170 distinct physical scene categories. We show that a transfer learning approach using weakly labeled training data can remarkably improve the classification of fragrant spaces and, more generally, artistic scene depictions. This work lays a foundation for further exploration of olfactory spaces recognition and broadens the classification of physical scenes to the realm of fine art. All images and labels are released as the ArtPlaces dataset at https://zenodo.org/records/13371280.
 
