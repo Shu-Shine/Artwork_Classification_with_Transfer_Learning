@@ -1,16 +1,14 @@
 # Fragrant Spaces Classification with Transfer Learning
 ## Introduction
-Olfaction and its aesthetic potential have traditionally been neglected and devalued, given the prevailing emphasis on visual-centric perspectives. It is inevitably absent as a sensory experience evoked through visual mediums such as artworks. Exploring the extraction of scent-related cues from visual data is a significant challenge, an effective way is to leverage the detection of proxies,  such as fragrant spaces, which refer to the scenes within artworks where fragrances or scents are depicted or implied.  
+Olfaction is often overlooked in cultural heritage studies, while examining historical depictions of olfactory scenes can offer valuable insights into the role of smells in history. The main challenge arises from the lack of published datasets with scene annotations for historical artworks, especially in artistic fragrant spaces. We introduce a novel artistic scene-centric dataset consisting of 4541 artworks and categorized across 170 distinct physical scene categories. We show that a transfer learning approach using weakly labeled training data can remarkably improve the classification of fragrant spaces and, more generally, artistic scene depictions. This work lays a foundation for further exploration of olfactory spaces recognition and broadens the classification of physical scenes to the realm of fine art. All images and labels are released as the ArtPlaces dataset at https://zenodo.org/records/13371280.
 
-This study presents the first attempt in identifying scenes depicting olfactory experiences within historical artworks using transfer learning techniques. We introduce two novel artistic scene-centric datasets, RASD and WASD, constructed through automated collection and annotation from open cultural heritage data sources. Four state-of-the-art deep neural network architectures, pre-trained on the large-scale photographic dataset, are fine-tuned on these datasets to classify fragrant spaces. The evaluation results demonstrate significant performance improvements, underscoring the efficacy of transfer learning in this context. This research lays a foundation for further exploration into the identification and interpretation of olfactory experiences in cultural heritage.
+## ArtPlaces Dataset
+We create two source datasets by retrieving images from the Rijksmuseum collection and Wikidata. The respective query terms are used as weak (i.e. semi-automatically generated) labels which serve as supervision signals during fine-tuning. Additionally, we create a manually labeled dataset of olfaction-related artworks to test the algorithms’ capability to classify fragrant spaces. 
+We combine the three source datasets to derive the ArtPlaces dataset:
+1. ArtPlaces-train: Is the weakly labeled training split, obtained by combining parts of RASD and WASD.
+2. FragrantSpaces-test: The primary objective of the FragrantSpaces-test set is to evaluate the models’ ability to detect fragrant spaces in olfaction-related artworks. As it is based on the ODOR dataset [32], we can assume that all of the images have some relation to olfaction. This focused approach allows us to measure how well the models identify and classify fragrant environments, which is crucial for their application in automated smell-reference extraction.
+3. ArtPlaces-test: In contrast, the ArtPlaces-test split is designed to provide a broader evaluation of scene classification capabilities. It does not specifically focus on olfaction-related images but aims to assess the general scene classification capabilities. This dataset offers a robust framework for testing scene recognition performance at the expense of a specific focus on smell-related scenes.
 
-## Dataset
-We possess the artistic scene-centric datasets RASD and WASD for transfer learning, which help bridge the gap between the contrasting characteristics of scent-based artistic representations and physical environments. The Fragrant-Spaces dataset is utilized to assess the efficacy of the trained models, serving as our target set. 
-<div align=center>
-<img width='500' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/t1.jpg'/>
-<img width='550' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/f.jpg'/>
-<img width='550' src='https://github.com/Shu-Shine/Fragrant_Spaces_Classification_with_Transfer_Learning/blob/main/images/asd.jpg'/>
-</div>
 
-## Results
-Through the application of transfer learning, the assessment of scene classification in artistic fragrant spaces has seen a significant enhancement. The fine-tuned models showcase an average increase of 30.15% in Top-5 accuracy and 18.09% in Top-1 accuracy.
+
+
